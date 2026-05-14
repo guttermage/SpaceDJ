@@ -1,6 +1,7 @@
 console.log("IS THIS WORKING")
 const floor = -160
 const ceiling = -90
+const synth = new Tone.Synth().toDestination();
 function xmlParser(xmlRaw){
 
 const parser = new DOMParser();
@@ -24,14 +25,19 @@ Array.from(dishes).forEach(dish => {
 			volume = Math.max(volume, 0.0);
 			
 		console.log(name + " Volume: " + volume.toFixed(2));
+		synth.triggerAttackRelease("C4","8n",undefined, volume);
 		console.log("Found Spacecraft: " + name + " at power: " + power);
+			}
+		});
 	});
-	
-});
 }
 
 // This is your test data (fake NASA XML)
 const rawData = '<dish><target name="VOYAGER1" power="-150" /></dish>';
 
-// This tells the computer: "Run the xmlParser using rawData"
-xmlParser(rawData);
+document.getElementById('start-btn').addEventListener('click',async()=> 
+	{
+		await Tone.start();
+		console.log("Audio Primed");
+		xmlParser(rawData);
+	});
