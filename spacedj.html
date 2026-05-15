@@ -5,10 +5,12 @@
     <title>SpaceDJ Console</title>
 </head>
 <body>
-    <h1>Deep Space Network Orchestra</h1>
-    <p>Check the Browser Console (F12) to see the parsed data.</p>
-
+    <h1>Deep Space Network DJ</h1>
+<div id="status-log" style="background: #000; color: #0f0; padding: 10px; height: 300px; overflow-y: scroll; font-family: monospace;">
+    Waiting for SpaceDJ to engage...
+</div>	
 	<button id ="start-btn">Start SpaceDJ</button>
+  	<button id ="stop-btn">Stop SpaceDJ</button>
    <script src="https://cdnjs.cloudflare.co	m/ajax/libs/tone/14.8.49/Tone.js"></script>
     <script src="src/parser.js"></script>
 </body>
